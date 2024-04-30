@@ -1,0 +1,11 @@
+npm i react-router-dom
+
+npm install @mui/icons-material
+
+npm install @mui/material @emotion/react @emotion/styled
+
+npm i react-signature-canvas
+
+npm i react-toastify
+
+

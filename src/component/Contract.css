@@ -1,0 +1,10 @@
+.care-box{
+    margin-top: 15px;
+    margin: auto;
+    height: 90vh;
+    width: 75%;
+    padding: 2em;
+    font-size: 19px;
+    margin-bottom: 40px;
+    background-color: rgb(145, 221, 191);
+}

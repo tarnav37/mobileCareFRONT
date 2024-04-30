@@ -1,0 +1,13 @@
+
+.rep-box{
+    margin-top: 15px;
+    margin: auto;
+    height: 100%;
+    width: 75%;
+    padding: 2em;
+    font-size: 20px;
+    background-color: rgb(145, 221, 191);
+}
+ul{
+    list-style: none;
+}
