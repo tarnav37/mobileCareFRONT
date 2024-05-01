@@ -36,11 +36,7 @@ const ContractForm = () => {
     pc: '',
     devmo: '',
     Imei: '',
-    purprice: '',
-    sremail: '',
-    Devicepur: '',
     Deviceamt: '',
-    Dl: ''
   });
 
   const handleChange = (e) => {
@@ -76,9 +72,6 @@ const ContractForm = () => {
         pc: '',
         devmo: '',
         Imei: '',
-        purprice: '',
-        sremail: '',
-        Devicepur: '',
         Deviceamt: '',
         Dl: ''
       });
