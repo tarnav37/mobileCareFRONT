@@ -16,17 +16,6 @@ const PurchasingForm = () => {
     Dl: '',
   });
 
-  const formFields = [
-    { name: 'date', label: 'Date:', type: 'date' },
-    { name: 'Devicepur', label: 'Device Being Purchased:', type: 'text' },
-    { name: 'Deviceamt', label: 'Device Purchased Amount:', type: 'text' },
-    { name: 'name', label: 'Name:', type: 'text' },
-    { name: 'phoneNo', label: 'Phone No.:', type: 'tel' },
-    { name: 'email', label: 'E-mail:', type: 'email' },
-    { name: 'Address', label: 'Address:', type: 'text' },
-    { name: 'Dl', label: 'Driving License No.:', type: 'text' },
-  ];
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -36,61 +25,150 @@ const PurchasingForm = () => {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  
-  try {
-    const apiUrl = 'https://mobilecarebackend.onrender.com/sellingform';
-    const response = await fetch(apiUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-
-    if (response.ok) {
-      notify();
-      // Reset form data
-      setFormData({
-        date: '',
-        name: '',
-        phoneNo: '',
-        email: '',
-        licenseNumber: '',
-        Address: '',
-        samemail: '',
-        iemail: '',
-        pc: '',
-        devmo: '',
-        Imei: '',
-        purprice: '',
-        sremail: ''
+    e.preventDefault();
+    
+    try {
+      const apiUrl = 'https://mobilecarebackend.onrender.com/purchaseform'; 
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-    } else {
-      throw new Error('Failed to submit form');
+
+      if (response.ok) {
+        notify();
+        // Reset form data
+        setFormData({
+          date: '',
+          Devicepur: '',
+          Deviceamt: '',
+          name: '',
+          phoneNo: '',
+          email: '',
+          Address: '',
+          Dl: '',
+        });
+
+        const downloadResponse = await fetch('https://mobilecarebackend.onrender.com/download', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (downloadResponse.ok) {
+          // If download is successful, read the response as blob
+          const pdfBlob = await downloadResponse.blob();
+          // Create a temporary URL for the blob
+          const pdfUrl = URL.createObjectURL(pdfBlob);
+          // Open the PDF in a new tab for download
+          window.open(pdfUrl);
+        } else {
+          throw new Error('Failed to download PDF');
+        }
+      } else {
+        throw new Error('Failed to submit form');
+      }
+    } catch (error) {
+      console.error('Error:', error);
     }
-  } catch (error) {
-    console.error('Error:', error);
-  }
-};
+  };
 
   const notify = () => toast("Your form is submitted!");
 
   return (
     <form onSubmit={handleSubmit} className="purchase-form">
-      {formFields.map(field => (
-        <div key={field.name} className="form-group">
-          <label htmlFor={field.name}>{field.label}</label>
-          <input
-            type={field.type}
-            id={field.name}
-            name={field.name}
-            value={formData[field.name]}
-            onChange={handleChange}
-            required
-          />
-        </div>
-      ))}
+      <div className="form-group">
+        <label htmlFor="date">Date:</label>
+        <input
+          type="date"
+          id="date"
+          name="date"
+          value={formData.date}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="Devicepur">Device Being Purchased:</label>
+        <input
+          type="text"
+          id="Devicepur"
+          name="Devicepur"
+          value={formData.Devicepur}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="Deviceamt">Device Purchased Amount:</label>
+        <input
+          type="text"
+          id="Deviceamt"
+          name="Deviceamt"
+          value={formData.Deviceamt}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="phoneNo">Phone No.:</label>
+        <input
+          type="tel"
+          id="phoneNo"
+          name="phoneNo"
+          value={formData.phoneNo}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="email">E-mail:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="Address">Address:</label>
+        <input
+          type="text"
+          id="Address"
+          name="Address"
+          value={formData.Address}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="Dl">Driving License No.:</label>
+        <input
+          type="text"
+          id="Dl"
+          name="Dl"
+          value={formData.Dl}
+          onChange={handleChange}
+          required
+        />
+      </div>
       <div className="signature-container">
         <label htmlFor="signature">Signature:</label>
         <div style={{ width: 500, height: 200, border: '1px solid #CCC' }}>

@@ -49,11 +49,44 @@ const ContractForm = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    try {
-      const apiUrl = 'https://mobilecarebackend.onrender.com/sellingform';
-      const response = await fetch(apiUrl, {
+  e.preventDefault();
+
+  try {
+    const apiUrl = 'https://mobilecarebackend.onrender.com/sellingform';
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      notify();
+      // Reset form data
+      setFormData({
+        date: '',
+        name: '',
+        phoneNo: '',
+        email: '',
+        licenseNumber: '',
+        Address: '',
+        samemail: '',
+        iemail: '',
+        pc: '',
+        devmo: '',
+        Imei: '',
+        purprice: '',
+        sremail: '',
+        Devicepur: '',
+        Deviceamt: '',
+        Dl: ''
+      });
+      // Clear signature
+      clearHandler();
+      
+      // Make a POST request to download the PDF
+      const downloadResponse = await fetch('https://mobilecarebackend.onrender.com/download', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -61,36 +94,24 @@ const ContractForm = () => {
         body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
-        notify();
-        // Reset form data
-        setFormData({
-          date: '',
-          name: '',
-          phoneNo: '',
-          email: '',
-          licenseNumber: '',
-          Address: '',
-          samemail: '',
-          iemail: '',
-          pc: '',
-          devmo: '',
-          Imei: '',
-          purprice: '',
-          sremail: '',
-          Devicepur: '',
-          Deviceamt: '',
-          Dl: ''
-        });
-        // Clear signature
-        clearHandler();
+      if (downloadResponse.ok) {
+        // If download is successful, read the response as blob
+        const pdfBlob = await downloadResponse.blob();
+        // Create a temporary URL for the blob
+        const pdfUrl = URL.createObjectURL(pdfBlob);
+        // Open the PDF in a new tab for download
+        window.open(pdfUrl);
       } else {
-        throw new Error('Failed to submit form');
+        throw new Error('Failed to download PDF');
       }
-    } catch (error) {
-      console.error('Error:', error);
+    } else {
+      throw new Error('Failed to submit form');
     }
-  };
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+
 
   return (
     <form onSubmit={handleSubmit} className="contract-form">

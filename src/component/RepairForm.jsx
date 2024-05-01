@@ -49,6 +49,25 @@ const RepairForm = () => {
 
       if (response.ok) {
         notify();
+        // Make a POST request to download the PDF
+        const downloadResponse = await fetch('https://mobilecarebackend.onrender.com/download', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (downloadResponse.ok) {
+          // If download is successful, read the response as blob
+          const pdfBlob = await downloadResponse.blob();
+          // Create a temporary URL for the blob
+          const pdfUrl = URL.createObjectURL(pdfBlob);
+          // Open the PDF in a new tab for download
+          window.open(pdfUrl);
+        } else {
+          throw new Error('Failed to download PDF');
+        }
       } else {
         throw new Error('Failed to submit form');
       }
@@ -119,7 +138,7 @@ const RepairForm = () => {
           </div>
         )
       }
-      <button onClick={notify}>Submit</button>
+      <button type="submit">Submit</button>
       <ToastContainer />
     </form>
   );
