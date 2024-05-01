@@ -153,24 +153,8 @@ const ContractForm = () => {
         <textarea id="Imei" name="Imei" value={formData.Imei} onChange={handleChange} required/>
       </div>
       <div className="care-form">
-        <label htmlFor="purprice">Purchase Price:</label>
-        <textarea id="purprice" name="purprice" value={formData.purprice} onChange={handleChange} required />
-      </div>
-      <div className="care-form">
-        <label htmlFor="sremail">Sales Representative E-mail Id:</label>
-        <textarea id="sremail" name="sremail" value={formData.sremail} onChange={handleChange} required />
-      </div>
-      <div className="care-form">
-        <label htmlFor="Devicepur">Device Purchase:</label>
-        <textarea id="Devicepur" name="Devicepur" value={formData.Devicepur} onChange={handleChange} required />
-      </div>
-      <div className="care-form">
         <label htmlFor="Deviceamt">Device Amount:</label>
         <textarea id="Deviceamt" name="Deviceamt" value={formData.Deviceamt} onChange={handleChange} required />
-      </div>
-      <div className="care-form">
-        <label htmlFor="Dl">Dl:</label>
-        <textarea id="Dl" name="Dl" value={formData.Dl} onChange={handleChange} required />
       </div>
       <div className="signature-container">
         <label htmlFor="signature">Signature:</label>
