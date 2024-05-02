@@ -19,19 +19,19 @@ class Navbar extends Component {
         <div>
           <ul id="navbar" className={this.state.clicked?"#navbar active":"#navbar"}>
             <li>
-              <a className="active" href="/" target="_blank">Home</a>
+              <a className="active" href="/" >Home</a>
             </li>
             <li>
-              <a href="/financing" target="_blank">Financing</a>
+              <a href="/financing" >Financing</a>
             </li>
             <li>
-              <a href="/purchasing"target="_blank">Purchasing</a>
+              <a href="/purchasing">Purchasing</a>
             </li>
             <li>
-              <a href="/contract" target="_blank">Selling</a>
+              <a href="/contract">Selling</a>
             </li>
             <li>
-              <a href="/repair"target="_blank">Repair</a>
+              <a href="/repair">Repair</a>
             </li>
             <li>
               <a href="/login"target="_blank">Login</a>

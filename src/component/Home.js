@@ -27,14 +27,14 @@ const Home = () => {
       <div className="home-container">
         <div className="home-box">
           <div className="home-div1 home-innerbox">
-            <a href="/financing" target="_blank">
+            <a href="/financing" >
               <img
                 src={Finance}
                 alt=""
               />
             </a>
           </div>
-          <div className="home-div2 home-innerbox" target="_blank">
+          <div className="home-div2 home-innerbox" >
             <a href="/purchasing">
               <img
                 src={Phonepurchasing}
@@ -43,14 +43,14 @@ const Home = () => {
             </a>
           </div>
           <div className="home-div3 home-innerbox">
-            <a href="/contract" target="_blank">
+            <a href="/contract" >
               <img
                 src={Phoneselling}
                 alt=""
               />
             </a>
           </div>
-          <div className="home-div4 home-innerbox" target="_blank">
+          <div className="home-div4 home-innerbox" >
             <a href="repair">
               <img
                 src={Phonerepair}
