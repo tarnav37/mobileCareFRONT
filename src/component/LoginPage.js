@@ -11,7 +11,7 @@ const LoginPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = () => {
-    if (email === "mcusawavier@gmail.com" && password === "Mobile1985") {
+    if (email === "mcusawaiver@gmail.com" && password === "Mobile1985") {
       setIsLoggedIn(true);
     } else {
       alert("Invalid email or password");

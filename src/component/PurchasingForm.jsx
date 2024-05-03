@@ -3,8 +3,10 @@ import './PurchasingForm.css';
 import SignatureCanvas from 'react-signature-canvas';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const PurchasingForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     date: '',
     Devicepur: '',
@@ -69,6 +71,8 @@ const PurchasingForm = () => {
         } else {
           throw new Error('Failed to download PDF');
         }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        navigate('/');
       } else {
         throw new Error('Failed to submit form');
       }
@@ -78,6 +82,7 @@ const PurchasingForm = () => {
   };
 
   const notify = () => toast("Your form is submitted!");
+  
 
   return (
     <form onSubmit={handleSubmit} className="purchase-form">

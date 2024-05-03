@@ -3,9 +3,11 @@ import './RepairForm.css'; // Import your CSS file
 import SignatureCanvas from 'react-signature-canvas'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const RepairForm = () => {
   const [signature, setSignature] = useState();
+  const navigate = useNavigate();
   const [result, setResult] = useState();
   const clearHandler = () => {
     signature.clear();
@@ -68,6 +70,8 @@ const RepairForm = () => {
         } else {
           throw new Error('Failed to download PDF');
         }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        navigate('/');
       } else {
         throw new Error('Failed to submit form');
       }

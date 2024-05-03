@@ -3,8 +3,10 @@ import './ContractForm.css'; // Import your CSS file
 import SignatureCanvas from 'react-signature-canvas'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const ContractForm = () => {
+  const navigate = useNavigate();
   const [signature, setSignature] = useState();
   const [result, setResult] = useState();
   
@@ -97,6 +99,8 @@ const ContractForm = () => {
       } else {
         throw new Error('Failed to download PDF');
       }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      navigate('/');
     } else {
       throw new Error('Failed to submit form');
     }
