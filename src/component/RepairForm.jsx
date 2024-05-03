@@ -108,7 +108,11 @@ const RepairForm = () => {
       </div>
       <div className="form-group">
         <label htmlFor="status">Status:</label>
-        <input type="text" id="status" name="status" value={formData.status} onChange={handleChange} />
+        <select id="status" name="status" value={formData.status} onChange={handleChange}>
+          <option value="">Choose Status</option>
+          <option value="Complete">Complete</option>
+          <option value="Pending">Pending</option>
+        </select>
       </div>
       <div className="form-group">
         <label htmlFor="deposit">Deposit:</label>
