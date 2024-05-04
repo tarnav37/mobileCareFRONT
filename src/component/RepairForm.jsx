@@ -99,15 +99,19 @@ const RepairForm = () => {
         <input type="tel" id="phoneNumber" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} />
       </div>
       <div className="form-group">
-        <label htmlFor="partOrder">Part Order:</label>
-        <input type="text" id="partOrder" name="partOrder" value={formData.partOrder} onChange={handleChange} />
-      </div>
+  <label htmlFor="partOrder">Part Order:</label>
+  <select id="partOrder" name="partOrder" value={formData.partOrder} onChange={handleChange}>
+    <option value="">Part Order</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  </select>
+</div>
       <div className="form-group">
-        <label htmlFor="technicianName">Technician Name:</label>
+        <label htmlFor="technicianName">Technician Name (Technician Only):</label>
         <input type="text" id="technicianName" name="technicianName" value={formData.technicianName} onChange={handleChange} />
       </div>
       <div className="form-group">
-        <label htmlFor="status">Status:</label>
+        <label htmlFor="status">Status (Technician Only):</label>
         <select id="status" name="status" value={formData.status} onChange={handleChange}>
           <option value="">Choose Status</option>
           <option value="Complete">Complete</option>
