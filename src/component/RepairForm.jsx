@@ -216,10 +216,7 @@ const RepairForm = () => {
           canvasProps={{ width: 500, height: 200, className: "sigCanvas" }}
         />
       </div>
-      <div className="sig-actions">
-        <button onClick={clearHandler}>Clear</button>
-        <button onClick={saveHandler}>Save</button>
-      </div>
+
       {result && (
         <div>
           <img src={result} alt="signature" />
