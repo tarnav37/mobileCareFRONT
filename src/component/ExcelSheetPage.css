@@ -24,7 +24,7 @@
 }
 
 .group button[type="submit"]:hover {
-  background-color: #91ddbf;
+  background-color: #f60101;
 }
 
 
@@ -53,7 +53,7 @@
 }
 
 .group button:hover {
-  background-color: #91ddbf;
+  background-color: #dd9e91;
 }
 
 table {
@@ -100,9 +100,21 @@ th {
 
 .reminder-popup button {
   margin-top: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
+
+.reminder-popup button:hover {
+  background-color: darkred;
+}
+
 .rem-button{
   margin:5px;
+  background-color: red;
 }
 
 /* Add this at the end of your CSS file */

@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div> <div className="footer-basic">
         <footer>
-            <div className="social"><a href="https://www.instagram.com/mobilecarecellular?igsh=NTJrd2Z4a28wbmxv"><i class="icon "><InstagramIcon/></i></a><a href={"mobilecareaugusta5@gmail.com"} target="'_blank'"><i class="icon " ><EmailIcon/></i></a><a href="/"><i class="icon "><XIcon/></i></a><a href="https://www.facebook.com/mobilecareaugusta?mibextid=LQQJ4d"><i class="icon"><FacebookIcon/></i></a></div>
+            <div className="social"><a href="https://www.instagram.com/mobilecareaugusta?igsh=NTJrd2Z4a28wbmxv"><i class="icon "><InstagramIcon/></i></a><a href={"mobilecareaugusta5@gmail.com"} target="'_blank'"><i class="icon " ><EmailIcon/></i></a><a href="/"><i class="icon "><XIcon/></i></a><a href="https://www.facebook.com/mobilecareaugusta?mibextid=LQQJ4d"><i class="icon"><FacebookIcon/></i></a></div>
             <ul className="list-inline">
                 <li className="list-inline-item"><a href="/">Home</a></li>
                 <li className="list-inline-item"><a href="/">Services</a></li>
