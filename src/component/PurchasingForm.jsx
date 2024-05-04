@@ -1,40 +1,40 @@
-import React, { useState } from 'react';
-import './PurchasingForm.css';
-import SignatureCanvas from 'react-signature-canvas';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "./PurchasingForm.css";
+import SignatureCanvas from "react-signature-canvas";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const PurchasingForm = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    date: '',
-    Devicepur: '',
-    Deviceamt: '',
-    name: '',
-    phoneNo: '',
-    email: '',
-    Address: '',
-    Dl: '',
+    date: "",
+    Devicepur: "",
+    Deviceamt: "",
+    name: "",
+    phoneNo: "",
+    email: "",
+    Address: "",
+    Dl: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
-      const apiUrl = 'https://mobilecarebackend.onrender.com/purchaseform'; 
+      const apiUrl = "https://mobilecarebackend.onrender.com/purchaseform";
       const response = await fetch(apiUrl, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -43,23 +43,26 @@ const PurchasingForm = () => {
         notify();
         // Reset form data
         setFormData({
-          date: '',
-          Devicepur: '',
-          Deviceamt: '',
-          name: '',
-          phoneNo: '',
-          email: '',
-          Address: '',
-          Dl: '',
+          date: "",
+          Devicepur: "",
+          Deviceamt: "",
+          name: "",
+          phoneNo: "",
+          email: "",
+          Address: "",
+          Dl: "",
         });
 
-        const downloadResponse = await fetch('https://mobilecarebackend.onrender.com/download', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
+        const downloadResponse = await fetch(
+          "https://mobilecarebackend.onrender.com/download",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        );
 
         if (downloadResponse.ok) {
           // If download is successful, read the response as blob
@@ -67,22 +70,31 @@ const PurchasingForm = () => {
           // Create a temporary URL for the blob
           const pdfUrl = URL.createObjectURL(pdfBlob);
           // Open the PDF in a new tab for download
-          window.open(pdfUrl);
+          const downloadLink = document.createElement("a");
+          // Set the href attribute of the link to the temporary URL
+          downloadLink.href = pdfUrl;
+          // Set the download attribute to specify the filename for the downloaded file
+          downloadLink.download = "downloaded_file.pdf";
+          // Append the link to the document body
+          document.body.appendChild(downloadLink);
+          // Simulate a click event on the link to trigger the download
+          downloadLink.click();
+          // Remove the link from the document body
+          document.body.removeChild(downloadLink);
         } else {
-          throw new Error('Failed to download PDF');
+          throw new Error("Failed to download PDF");
         }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        navigate('/');
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        navigate("/");
       } else {
-        throw new Error('Failed to submit form');
+        throw new Error("Failed to submit form");
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
   const notify = () => toast("Your form is submitted!");
-  
 
   return (
     <form onSubmit={handleSubmit} className="purchase-form">
@@ -176,9 +188,9 @@ const PurchasingForm = () => {
       </div>
       <div className="signature-container">
         <label htmlFor="signature">Signature:</label>
-        <div style={{ width: 500, height: 200, border: '1px solid #CCC' }}>
+        <div style={{ width: 500, height: 200, border: "1px solid #CCC" }}>
           <SignatureCanvas
-            canvasProps={{ width: 500, height: 200, className: 'sigCanvas' }}
+            canvasProps={{ width: 500, height: 200, className: "sigCanvas" }}
           />
         </div>
       </div>

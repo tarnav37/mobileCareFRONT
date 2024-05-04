@@ -1,5 +1,6 @@
+// ExcelSheetPage.js
 import React, { useState, useEffect } from "react";
-import "./ExcelSheetPage.css"; 
+import "./ExcelSheetPage.css";
 import logo from "../Images/Logo.png";
 
 const ExcelSheetPage = () => {
@@ -17,9 +18,8 @@ const ExcelSheetPage = () => {
   });
 
   const [rows, setRows] = useState([]);
-  const [showReminder, setShowReminder] = useState(true);
+  const [showReminder, setShowReminder] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
-  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,7 +38,6 @@ const ExcelSheetPage = () => {
       });
       if (response.ok) {
         console.log("Form data submitted successfully");
-        // After successful submission, fetch updated data
         fetchData();
       } else {
         throw new Error("Failed to submit form data");
@@ -46,7 +45,6 @@ const ExcelSheetPage = () => {
     } catch (error) {
       console.error("Error:", error);
     }
-    // Reset form data
     setFormData({
       date: "",
       deviceModel: "",
@@ -79,17 +77,40 @@ const ExcelSheetPage = () => {
     fetchData();
     const interval = setInterval(fetchData, 5000);
     return () => clearInterval(interval);
-  }, []); 
+  }, []);
 
   const handleReminderPopup = (row) => {
     setSelectedRow(row);
     setShowReminder(true);
   };
 
-  // Function to close reminder popup
   const closeReminderPopup = () => {
     setShowReminder(false);
     setSelectedRow(null);
+  };
+
+  const handleEditClick = (id, updatedData) => {
+    handleEdit(id, updatedData);
+  };
+
+  const handleEdit = async (id, updatedData) => {
+    try {
+      const response = await fetch(`https://mobilecarebackend.onrender.com/repairform/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updatedData)
+      });
+      if (response.ok) {
+        console.log("Form data updated successfully");
+        fetchData();
+      } else {
+        throw new Error("Failed to update form data");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -218,11 +239,12 @@ const ExcelSheetPage = () => {
             <th>Deposit</th>
             <th>Total Amount</th>
             <th>Balance</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
-          {rows.length > 0 && rows.map((row, index) => (
-            row.date && row.deviceModel && row.customerName && row.phoneNumber && row.partOrder && row.technicianName && row.status && row.deposit && row.totalAmount && row.balance ? (
+          {rows.length > 0 &&
+            rows.map((row, index) => (
               <tr key={index}>
                 <td>{row.date}</td>
                 <td>{row.deviceModel}</td>
@@ -231,19 +253,27 @@ const ExcelSheetPage = () => {
                 <td>{row.partOrder}</td>
                 <td>{row.technicianName}</td>
                 <td>
-                    {row.status === "Pending" || row.status == "pending" && (
-                      <button  className = "rem-button"onClick={() => handleReminderPopup(row)}>Pending</button>
-                    )}
-                    {row.status !== "Pending" && row.status}
-                  </td>
+                  {row.status === "Pending" || row.status === "pending" ? (
+                    <button className="rem-button" onClick={() => handleReminderPopup(row)}>
+                      Pending
+                    </button>
+                  ) : (
+                    "Completed"
+                  )}
+                </td>
                 <td>{row.deposit}</td>
                 <td>{row.totalAmount}</td>
                 <td>{row.balance}</td>
+                <td>
+                  <button onClick={() => handleEditClick(row._id, { ...row, status: "Updated" })}>
+                    Change Status
+                  </button>
+                </td>
               </tr>
-            ) : null
-          ))}
+            ))}
         </tbody>
       </table>
+
       {showReminder && selectedRow && (
         <div className="reminder-popup">
           <div className="reminder-content">
@@ -254,7 +284,7 @@ const ExcelSheetPage = () => {
             <button onClick={closeReminderPopup}>Close</button>
           </div>
         </div>
-        )}
+      )}
     </div>
   );
 };

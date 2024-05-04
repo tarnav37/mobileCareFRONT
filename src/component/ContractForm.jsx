@@ -95,7 +95,17 @@ const ContractForm = () => {
         // Create a temporary URL for the blob
         const pdfUrl = URL.createObjectURL(pdfBlob);
         // Open the PDF in a new tab for download
-        window.open(pdfUrl);
+        const downloadLink = document.createElement("a");
+  // Set the href attribute of the link to the temporary URL
+  downloadLink.href = pdfUrl;
+  // Set the download attribute to specify the filename for the downloaded file
+  downloadLink.download = "downloaded_file.pdf";
+  // Append the link to the document body
+  document.body.appendChild(downloadLink);
+  // Simulate a click event on the link to trigger the download
+  downloadLink.click();
+  // Remove the link from the document body
+  document.body.removeChild(downloadLink);
       } else {
         throw new Error('Failed to download PDF');
       }
