@@ -1,73 +1,79 @@
 /* styles.css */
-.container {
-    margin-top: 0px;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top: 30px;
-  }
-  
-  .form-group {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 10vh;
-    width: 75%;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .button-container {
-    text-align: center;
-  }
-  
-  .button-container button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    background-color: rgb(145, 221, 191);
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .button-container button:hover {
-    background-color: rgb(145, 221, 191);
-  }
-  
-  .alert {
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
-    background-color: #91ddbf;
-    color: #fff;
-  }
-  
-  .show-password{
-    padding: 10px 20px;
-    font-size: 11px;
-    border: none;
-    border-radius: 5px;
-    background-color: #91ddbf;
-    color: #fff;
-    cursor: pointer;
 
+.container {
+  margin-top: 0px;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.form-group {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 75%;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(145, 221, 191);
+  color: #fff;
+  cursor: pointer;
+}
+
+.button-container button:hover {
+  background-color: rgb(145, 221, 191);
+}
+
+.alert {
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: #91ddbf;
+  color: #fff;
+}
+
+.show-password {
+  padding: 10px 20px;
+  font-size: 11px;
+  border: none;
+  border-radius: 5px;
+  background-color: #91ddbf;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
   }
+}

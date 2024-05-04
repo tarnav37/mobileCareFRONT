@@ -12,6 +12,21 @@
   margin-top: 25px;
   margin-bottom: 15px;
 }
+.group button[type="submit"] {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #08010a;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.group button[type="submit"]:hover {
+  background-color: #91ddbf;
+}
+
 
 .group label {
   display: block;
@@ -88,4 +103,36 @@ th {
 }
 .rem-button{
   margin:5px;
+}
+
+/* Add this at the end of your CSS file */
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+  .edit-sheet .group {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .edit-sheet {
+    flex-direction: column;
+  }
+  .group input,
+  .group select {
+    width: calc(100% - 16px); /* Adjusting for padding */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .group button {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  th,
+  td {
+    font-size: 14px;
+  }
 }
