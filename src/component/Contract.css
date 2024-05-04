@@ -1,10 +1,22 @@
-.care-box{
+.care-box {
     margin-top: 15px;
     margin: auto;
-    height: 90vh;
-    width: 75%;
+    height: auto;
+    max-width: 1100px; /* Set a maximum width for larger screens */
     padding: 2em;
     font-size: 19px;
     margin-bottom: 40px;
     background-color: rgb(145, 221, 191);
+}
+
+@media only screen and (max-width: 768px) {
+    .care-box {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .care-box {
+        padding: 1em; /* Adjust padding for smaller screens */
+    }
 }

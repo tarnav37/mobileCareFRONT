@@ -24,7 +24,7 @@
   }
   
   button {
-    background-color: #91ddbf;
+    background-color: rgb(145, 221, 191);
     color: white;
     padding: 12px 20px;
     border: none;
@@ -55,4 +55,36 @@
     padding: 20px;
     text-align: center;
   }
-  
+  /* For screens smaller than 768px (tablets and phones) */
+@media (max-width: 768px) {
+  .contract-form {
+    max-width: 90%; /* Adjust the max-width to fit smaller screens */
+  }
+
+  /* Adjust input, select, and textarea sizes for better usability on smaller screens */
+  input,
+  select,
+  textarea {
+    width: 100%;
+  }
+}
+
+/* For screens smaller than 480px (phones) */
+@media (max-width: 480px) {
+  /* Adjust margins and paddings for better spacing on smaller screens */
+  .care-form {
+    margin-bottom: 15px;
+  }
+
+  label {
+    margin-bottom: 3px;
+  }
+
+  button {
+    padding: 10px 15px;
+  }
+
+  .signature-container button {
+    margin-top: 5px;
+  }
+}
