@@ -1,0 +1,21 @@
+/* .ins-box {
+    margin: auto;
+    width: 75%;
+    padding: 2em;
+    font-size: 20px;
+    background-color: rgb(145, 221, 191);
+}
+
+@media screen and (max-width: 768px) {
+    .ins-box {
+        width: 90%;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .ins-box {
+        width: 95%;
+        font-size: 16px;
+    }
+} */

@@ -3,10 +3,11 @@ import Opening from "./Opening";
 import { useEffect,useState } from "react";
 import "./Home.css";
 import Finance from "../Images/finaancing.png";
-import Phonepurchasing from "../Images/devicePurchase.png";
+import Phonepurchasing from "../Images/devicePurchase2.png";
 import Phonerepair from "../Images/deviceRepair.png";
 import Phoneselling from "../Images/deviceSelling.png";
 import logo from "../Images/Logo.png";
+// import Insurance from "../Images/Insurance.png";
 
 const Home = () => {
     const[count,setcount]=useState(0)
@@ -51,13 +52,21 @@ const Home = () => {
             </a>
           </div>
           <div className="home-div4 home-innerbox" >
-            <a href="repair">
+            <a href="/repair">
               <img
                 src={Phonerepair}
                 alt=""
               />
             </a>
           </div>
+          {/* <div className="home-div5 home-innerbox" >
+          <a href="/Insurance" >
+              <img
+                src={Insurance}
+                alt=""
+              />
+            </a>
+          </div> */}
         </div>
       </div>
       
