@@ -250,7 +250,7 @@ const ContractForm = () => {
         <div style={{ width: 700, height: 300, border: "1px solid #CCC" }}>
           <SignatureCanvas
             ref={signatureCanvasRef}
-            canvasProps={{ width: 500, height: 200, className: "sigCanvas" }}
+            canvasProps={{ width: 700, height: 300, className: "sigCanvas" }}
           />
         </div>
         <div className="signature-buttons">
