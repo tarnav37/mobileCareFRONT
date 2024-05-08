@@ -19,13 +19,13 @@
 
 @media screen and (max-width: 1600px) {
     .pur-box {
-        font-size: 16px;
+        font-size: 23px;
     }
 }
 
 @media screen and (max-width: 1200px) {
     .pur-box {
-        font-size: 15px; /* Further adjusted font size for larger screens */
+        font-size: 23px; /* Further adjusted font size for larger screens */
     }
 }
 
