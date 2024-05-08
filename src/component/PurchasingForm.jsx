@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./PurchasingForm.css";
 import SignatureCanvas from "react-signature-canvas";
 import { ToastContainer, toast } from "react-toastify";
@@ -17,13 +17,22 @@ const PurchasingForm = () => {
     Address: "",
     Dl: "",
   });
-
+  const signatureCanvasRef = useRef({});
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
+  };
+  const handleSaveSignature = () => {
+    const signatureData = signatureCanvasRef.current.toDataURL();
+    // Do something with the signature data, like save it to the form data
+    console.log("Signature Data:", signatureData);
+  };
+
+  const handleClearSignature = () => {
+    signatureCanvasRef.current.clear();
   };
 
   const handleSubmit = async (e) => {
@@ -190,8 +199,17 @@ const PurchasingForm = () => {
         <label htmlFor="signature">Signature:</label>
         <div style={{ width: 500, height: 200, border: "1px solid #CCC" }}>
           <SignatureCanvas
+            ref={signatureCanvasRef}
             canvasProps={{ width: 500, height: 200, className: "sigCanvas" }}
           />
+        </div>
+        <div className="signature-buttons">
+          <button type="button" onClick={handleSaveSignature}>
+            Save
+          </button>
+          <button type="button" onClick={handleClearSignature}>
+            Clear
+          </button>
         </div>
       </div>
       <button type="submit">Submit</button>

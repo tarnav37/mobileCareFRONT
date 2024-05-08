@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./ContractForm.css"; // Import your CSS file
 import SignatureCanvas from "react-signature-canvas";
 import { ToastContainer, toast } from "react-toastify";
@@ -7,25 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 const ContractForm = () => {
   const navigate = useNavigate();
-  const [signature, setSignature] = useState();
-  const [result, setResult] = useState();
-
-  const clearHandler = () => {
-    if (signature) {
-      signature.clear();
-      setResult(null);
-    }
-  };
-
-  const saveHandler = () => {
-    if (signature) {
-      const res = signature.getTrimmedCanvas().toDataURL("image/png");
-      setResult(res);
-    }
-  };
-
-  const notify = () => toast("Your form is submitted!");
-
   const [formData, setFormData] = useState({
     date: "",
     name: "",
@@ -41,11 +22,22 @@ const ContractForm = () => {
     Deviceamt: "",
   });
 
+  const signatureCanvasRef = useRef({});
+  const handleSaveSignature = () => {
+    const signatureData = signatureCanvasRef.current.toDataURL();
+    // Do something with the signature data, like save it to the form data
+    console.log("Signature Data:", signatureData);
+  };
+
+  const handleClearSignature = () => {
+    signatureCanvasRef.current.clear();
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
+  const notify = () => toast("Your form is submitted!");
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -78,7 +70,7 @@ const ContractForm = () => {
           Dl: "",
         });
         // Clear signature
-        clearHandler();
+        handleClearSignature();
 
         // Make a POST request to download the PDF
         const downloadResponse = await fetch(
@@ -255,20 +247,20 @@ const ContractForm = () => {
       </div>
       <div className="signature-container">
         <label htmlFor="signature">Signature:</label>
-        <div style={{ width: 500, height: 200, border: "1px Solid #CCC" }}>
+        <div style={{ width: 500, height: 200, border: "1px solid #CCC" }}>
           <SignatureCanvas
-            ref={(ref) => setSignature(ref)}
-            pencolor="Black"
-            backgroundColor="rgba(255,255,255,1)"
+            ref={signatureCanvasRef}
             canvasProps={{ width: 500, height: 200, className: "sigCanvas" }}
           />
         </div>
-
-        {result && (
-          <div>
-            <img src={result} alt="Signature" />
-          </div>
-        )}
+        <div className="signature-buttons">
+          <button type="button" onClick={handleSaveSignature}>
+            Save
+          </button>
+          <button type="button" onClick={handleClearSignature}>
+            Clear
+          </button>
+        </div>
       </div>
       <button type="submit">Submit</button>
       <ToastContainer />
