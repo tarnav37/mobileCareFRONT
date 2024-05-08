@@ -1,44 +1,53 @@
 .purchase-form {
-  max-width: 500px;
+  max-width: 800px; /* Increase the max-width for larger screens */
   margin: auto;
-  padding: 20px;
+  padding: 40px; /* Increase padding for better spacing on larger screens */
 }
 
+@media only screen and (max-width: 1200px) {
+  .purchase-form {
+    max-width: 600px; /* Adjust max-width for medium-sized screens */
+    padding: 30px; /* Adjust padding for medium-sized screens */
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .purchase-form {
+    max-width: 400px; /* Adjust max-width for smaller screens */
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* Other styles remain the same */
 .form-group {
   margin-bottom: 20px;
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px; /* Increase margin-bottom for better spacing */
 }
 
 input,
 select,
 textarea {
   width: 100%;
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 12px; /* Increase padding for better visibility and touch targets */
+  font-size: 18px; /* Increase font size for better readability */
+  border: 2px solid #ccc; /* Increase border width for better visibility */
+  border-radius: 6px; /* Increase border radius for smoother edges */
 }
 
 button {
   background-color: #91ddbf;
   color: white;
-  padding: 12px 20px;
+  padding: 16px 24px; /* Increase padding for better visibility and touch targets */
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 button:hover {
-  background-color: #91ddbf;
-}
-
-@media only screen and (max-width: 600px) {
-  .purchase-form {
-    padding: 10px;
-  }
+  background-color: #77c5a7; /* Darken the hover color for better contrast */
 }

@@ -2,10 +2,10 @@ import React from "react"
 import Opening from "./Opening";
 import { useEffect,useState } from "react";
 import "./Home.css";
-import Finance from "../Images/finaancing.png";
-import Phonepurchasing from "../Images/devicePurchase2.png";
-import Phonerepair from "../Images/deviceRepair.png";
-import Phoneselling from "../Images/deviceSelling.png";
+import Finance from "../Images/Fin1.png";
+import Phonepurchasing from "../Images/Dpur1.png";
+import Phonerepair from "../Images/Drep1.png";
+import Phoneselling from "../Images/Ddel1.png";
 import logo from "../Images/Logo.png";
 // import Insurance from "../Images/Insurance.png";
 

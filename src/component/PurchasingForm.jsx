@@ -197,7 +197,7 @@ const PurchasingForm = () => {
       </div>
       <div className="signature-container">
         <label htmlFor="signature">Signature:</label>
-        <div style={{ width: 500, height: 200, border: "1px solid #CCC" }}>
+        <div style={{ width: 700, height: 300, border: "1px solid #CCC" }}>
           <SignatureCanvas
             ref={signatureCanvasRef}
             canvasProps={{ width: 500, height: 200, className: "sigCanvas" }}

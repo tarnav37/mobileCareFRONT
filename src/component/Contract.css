@@ -1,22 +1,31 @@
 .care-box {
-    margin-top: 15px;
-    margin: auto;
-    height: auto;
-    max-width: 1100px; /* Set a maximum width for larger screens */
-    padding: 2em;
-    font-size: 19px;
-    margin-bottom: 40px;
-    background-color: rgb(145, 221, 191);
+  margin-top: 15px;
+  margin: auto;
+  height: auto;
+  max-width: 1100px; /* Set a maximum width for larger screens */
+  padding: 2em;
+  font-size: 23px;
+  margin-bottom: 40px;
+  background-color: rgb(145, 221, 191);
 }
 
-@media only screen and (max-width: 768px) {
-    .care-box {
-        font-size: 16px; /* Adjust font size for smaller screens */
-    }
+@media screen and (max-width: 600px) {
+  .care-box {
+      max-width: 100%; /* Make form full-width on smaller screens */
+      padding: 10px; /* Adjust padding for smaller screens */
+  }
 }
 
-@media only screen and (max-width: 600px) {
-    .care-box {
-        padding: 1em; /* Adjust padding for smaller screens */
-    }
+@media screen and (max-width: 400px) {
+  input,
+  select,
+  textarea {
+      font-size: 14px; /* Decrease font size on smaller screens */
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .care-box {
+      max-width: 1400px; /* Adjust max-width for 1920x1080 screens */
+  }
 }
