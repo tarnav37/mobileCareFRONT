@@ -55,7 +55,9 @@ const ExcelSheetPage = () => {
       status: "",
       deposit: "",
       totalAmount: "",
-      balance: ""
+      balance: "",
+      beingrepair: "",
+      notes: "",
     });
   };
 
@@ -235,10 +237,12 @@ const ExcelSheetPage = () => {
             <th>Phone Number</th>
             <th>Part Order</th>
             <th>Technician Name</th>
+            <th>Part Repaired</th>
             <th>Status</th>
             <th>Deposit</th>
             <th>Total Amount</th>
             <th>Balance</th>
+            <th>Notes</th>
             <th>Edit</th>
           </tr>
         </thead>
@@ -252,6 +256,7 @@ const ExcelSheetPage = () => {
                 <td>{row.phoneNumber}</td>
                 <td>{row.partOrder}</td>
                 <td>{row.technicianName}</td>
+                <td>{row.beingrepair}</td>
                 <td>
                   {row.status === "Pending" || row.status === "pending" ? (
                     <button className="rem-button" onClick={() => handleReminderPopup(row)}>
@@ -264,6 +269,7 @@ const ExcelSheetPage = () => {
                 <td>{row.deposit}</td>
                 <td>{row.totalAmount}</td>
                 <td>{row.balance}</td>
+                <td>{row.notes}</td>
                 <td>
                   <button onClick={() => handleEditClick(row._id, { ...row, status: "Updated" })}>
                     Change Status

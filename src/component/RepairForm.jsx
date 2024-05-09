@@ -20,6 +20,7 @@ const RepairForm = () => {
     deposit: "",
     totalAmount: "",
     balance: "",
+    notes: "",
   });
   const signatureCanvasRef = useRef({});
   const handleChange = (e) => {
