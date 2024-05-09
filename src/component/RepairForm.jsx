@@ -164,6 +164,18 @@ const RepairForm = () => {
         />
       </div>
       <div className="form-group">
+        <label htmlFor="beingrepair">
+          What is being repaired ? (Technician Only):
+        </label>
+        <input
+          type="text"
+          id="beingrepair"
+          name="beingrepair"
+          value={formData.beingrepair}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="form-group">
         <label htmlFor="status">Status (Technician Only):</label>
         <select
           id="status"
@@ -203,6 +215,16 @@ const RepairForm = () => {
           id="balance"
           name="balance"
           value={formData.balance}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="notes">Additional Notes (If Any):</label>
+        <input
+          type="text"
+          id="notes"
+          name="notes"
+          value={formData.notes}
           onChange={handleChange}
         />
       </div>
