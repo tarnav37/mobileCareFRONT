@@ -20,10 +20,14 @@ const ExcelSheetPage = () => {
   const [rows, setRows] = useState([]);
   const [showReminder, setShowReminder] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
   };
 
   const handleSubmit = async (e) => {
@@ -114,6 +118,10 @@ const ExcelSheetPage = () => {
       console.error("Error:", error);
     }
   };
+  const filteredRows = rows.filter(row =>
+    row.customerName.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
 
   return (
     <div className="excel-sheet">
@@ -124,6 +132,12 @@ const ExcelSheetPage = () => {
         <h1>Repair Status Sheet</h1>
         <br />
       </div>
+      <input
+        type="text"
+        placeholder="Search by customer name"
+        value={searchQuery}
+        onChange={handleSearchChange}
+      />
       <form onSubmit={handleSubmit} className="edit-sheet">
         <div className="group">
           <label htmlFor="date">Date:</label>
@@ -247,9 +261,9 @@ const ExcelSheetPage = () => {
           </tr>
         </thead>
         <tbody>
-          {rows.length > 0 &&
-            rows.map((row, index) => (
-              <tr key={index}>
+          
+                {filteredRows.map((row, index) => (
+            <tr key={index}>
                 <td>{row.date}</td>
                 <td>{row.deviceModel}</td>
                 <td>{row.customerName}</td>
