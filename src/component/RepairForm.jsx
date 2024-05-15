@@ -56,7 +56,7 @@ const RepairForm = () => {
         notify();
         // Make a POST request to download the PDF
         const downloadResponse = await fetch(
-          "https://mobilecarebackend.onrender.com/download",
+          "https://mobilecarebackend.onrender.com/downloadrepair",
           {
             method: "POST",
             headers: {

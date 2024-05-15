@@ -63,7 +63,7 @@ const PurchasingForm = () => {
         });
 
         const downloadResponse = await fetch(
-          "https://mobilecarebackend.onrender.com/download",
+          "https://mobilecarebackend.onrender.com/downloadpurchase",
           {
             method: "POST",
             headers: {
