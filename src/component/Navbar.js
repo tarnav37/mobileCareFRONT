@@ -34,6 +34,12 @@ class Navbar extends Component {
               <a href="/repair">Repair</a>
             </li>
             <li>
+              <a href="/insurance">Insurance</a>
+            </li>
+            <li>
+              <a href="/network">Networks</a>
+            </li>
+            <li>
               <a href="/login"target="_blank">Login</a>
             </li>
           </ul>

@@ -9,8 +9,8 @@ import Repair from './component/Repair'
 import Loginpage from './component/LoginPage'
 import { Routes,Route } from 'react-router-dom'
 import ExcelSheetPage from "./component/ExcelSheetPage";
-
-
+import Insurance from './component/Insurance'
+import Network from './component/Network'
 const App = () => {
   
   return (
@@ -26,6 +26,8 @@ const App = () => {
       <Route path='/repair' element={<Repair/>}/>
       <Route path='/login' element={<Loginpage/>}/>
       <Route path="/excel-form" element={<ExcelSheetPage />} />
+      <Route path='/insurance' element={<Insurance />} /> {/* Add this route */}
+        <Route path='/network' element={<Network />} /> 
     </Routes>
     <Footer/>
     

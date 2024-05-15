@@ -1,15 +1,15 @@
 import React from "react";
-import "./Insurance.css";
+import "./Network.css";
 
-const Insurance = () => {
+const Network = () => {
   return (
     <div>
       <br />
-      <div className="ins-box">
-        <h2> Insurance</h2>
+      <div className="net-box">
+        <h2> Networks</h2>
         <hr color="black" />
         <br />
-        <h4>Mobile Care Insurance</h4>
+        <h4>Mobile Care Networks</h4>
         <br />
         <p>
           We offer financing at NO CREDIT check
@@ -47,4 +47,4 @@ const Insurance = () => {
   );
 };
 
-export default Insurance;
+export default Network;
