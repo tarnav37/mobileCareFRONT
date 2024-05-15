@@ -7,8 +7,8 @@ import Phonepurchasing from "../Images/Dpur1.png";
 import Phonerepair from "../Images/Drep1.png";
 import Phoneselling from "../Images/Ddel1.png";
 import logo from "../Images/Logo.png";
-import Insurance from "../Images/Insurance.png";
-import Network from "../Images/Network.png";
+import Insurance from "../Images/ins.png";
+import Network from "../Images/Net.png";
 
 const Home = () => {
     const [count, setCount] = useState(0);

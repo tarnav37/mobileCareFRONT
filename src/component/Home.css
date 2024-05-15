@@ -1,65 +1,77 @@
-/* Home.css */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  .home-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
- .home-box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    margin-top: 3em;
-    overflow: hidden;
-    background-color: white;
-    max-width: 60em;
-    border-radius: 20px; 
-    border: 0.5px solid #777; 
-  }  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .home-innerbox {
-    height: 49.59%;
-    width: 49.59%;
-    float: left;
-    margin: 0.1em;
-  }
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.home-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+   /* Increased gap for better spacing */
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 3em;
+  background-color: white;
+  max-width: 60em;
+  border-radius: 20px;
+  border: 0.5px solid #777;
   
-  .home-innerbox img {
-    height: 100%;
-    width: 100%;
-  }
   
-  .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-  }
+}
+
+.home-innerbox {
   
-  .logo img {
-    height: 60px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white; /* Ensure each box has a background */
+  border: 2px solid #ccc; /* Add border to each box */
   
-  .home-box:hover {
-    background-color: #313633;
-  }
-  
-  @media screen and (max-width: 769px) {
-    .home-box {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+  width: 100%; /* Ensure boxes fill the grid cells */
+}
+
+.home-innerbox img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Add border radius to images */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.home-box:hover {
+  background-color: #313633;
+}
+
+@media screen and (max-width: 769px) {
+  .home-box {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, 1fr);
+      transform: none; /* Remove skew for smaller screens */
       width: 100%;
-      height: 100%;
+      padding: 0;
       border: none;
-    }
   }
   
+  .home-innerbox {
+      transform: none; /* Remove counter skew for smaller screens */
+  }
+}
