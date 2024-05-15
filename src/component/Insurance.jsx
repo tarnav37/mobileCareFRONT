@@ -12,7 +12,7 @@ const Insurance = () => {
         <h4>Mobile Care Insurance</h4>
         <br />
         <p>
-          We offer financing at NO CREDIT check
+          We offer financig at NO CREDIT check
           <br />
           <br />
           Our financing partners at ACIMA make it fast and easy!
