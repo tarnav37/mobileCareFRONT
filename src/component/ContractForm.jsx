@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import "./ContractForm.css"; // Import your CSS file
+import "./ContractForm.css";
 import SignatureCanvas from "react-signature-canvas";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -20,13 +20,14 @@ const ContractForm = () => {
     devmo: "",
     Imei: "",
     Deviceamt: "",
+    signature: "", // Added signature field
   });
 
   const signatureCanvasRef = useRef({});
+
   const handleSaveSignature = () => {
     const signatureData = signatureCanvasRef.current.toDataURL();
-    // Do something with the signature data, like save it to the form data
-    console.log("Signature Data:", signatureData);
+    setFormData({ ...formData, signature: signatureData });
   };
 
   const handleClearSignature = () => {
@@ -37,7 +38,9 @@ const ContractForm = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
   const notify = () => toast("Your form is submitted!");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -53,8 +56,8 @@ const ContractForm = () => {
 
       if (response.ok) {
         notify();
-        // Reset form data
         setFormData({
+          // Reset form data
           date: "",
           name: "",
           phoneNo: "",
@@ -67,12 +70,9 @@ const ContractForm = () => {
           devmo: "",
           Imei: "",
           Deviceamt: "",
-          Dl: "",
+          signature: "", // Clear signature field
         });
-        // Clear signature
         handleClearSignature();
-
-        // Make a POST request to download the PDF
         const downloadResponse = await fetch(
           "https://mobilecarebackend.onrender.com/downloadselling",
           {
@@ -85,21 +85,13 @@ const ContractForm = () => {
         );
 
         if (downloadResponse.ok) {
-          // If download is successful, read the response as blob
           const pdfBlob = await downloadResponse.blob();
-          // Create a temporary URL for the blob
           const pdfUrl = URL.createObjectURL(pdfBlob);
-          // Open the PDF in a new tab for download
           const downloadLink = document.createElement("a");
-          // Set the href attribute of the link to the temporary URL
           downloadLink.href = pdfUrl;
-          // Set the download attribute to specify the filename for the downloaded file
           downloadLink.download = "downloaded_file.pdf";
-          // Append the link to the document body
           document.body.appendChild(downloadLink);
-          // Simulate a click event on the link to trigger the download
           downloadLink.click();
-          // Remove the link from the document body
           document.body.removeChild(downloadLink);
         } else {
           throw new Error("Failed to download PDF");
