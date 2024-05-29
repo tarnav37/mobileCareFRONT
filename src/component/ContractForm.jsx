@@ -24,22 +24,25 @@ const ContractForm = () => {
   });
 
   const signatureCanvasRef = useRef({});
-
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
   const handleSaveSignature = () => {
     const signatureData = signatureCanvasRef.current.toDataURL();
-    setFormData({ ...formData, signature: signatureData });
+    setFormData((prevState) => ({
+      ...prevState,
+      signature: signatureData,
+    }));
+    console.log("Signature Data:", signatureData);
   };
 
   const handleClearSignature = () => {
     signatureCanvasRef.current.clear();
   };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const notify = () => toast("Your form is submitted!");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -57,7 +60,6 @@ const ContractForm = () => {
       if (response.ok) {
         notify();
         setFormData({
-          // Reset form data
           date: "",
           name: "",
           phoneNo: "",
@@ -72,7 +74,7 @@ const ContractForm = () => {
           Deviceamt: "",
           signature: "", // Clear signature field
         });
-        handleClearSignature();
+
         const downloadResponse = await fetch(
           "https://mobilecarebackend.onrender.com/downloadselling",
           {
@@ -105,6 +107,8 @@ const ContractForm = () => {
       console.error("Error:", error);
     }
   };
+
+  const notify = () => toast("Your form is submitted!");
 
   return (
     <form onSubmit={handleSubmit} className="contract-form">
