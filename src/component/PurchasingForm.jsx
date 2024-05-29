@@ -16,6 +16,7 @@ const PurchasingForm = () => {
     email: "",
     Address: "",
     Dl: "",
+    signature: "", // Add signature field
   });
   const signatureCanvasRef = useRef({});
   const handleChange = (e) => {
@@ -27,7 +28,10 @@ const PurchasingForm = () => {
   };
   const handleSaveSignature = () => {
     const signatureData = signatureCanvasRef.current.toDataURL();
-    // Do something with the signature data, like save it to the form data
+    setFormData((prevState) => ({
+      ...prevState,
+      signature: signatureData,
+    }));
     console.log("Signature Data:", signatureData);
   };
 
@@ -60,6 +64,7 @@ const PurchasingForm = () => {
           email: "",
           Address: "",
           Dl: "",
+          signature: "", // Reset signature field
         });
 
         const downloadResponse = await fetch(
