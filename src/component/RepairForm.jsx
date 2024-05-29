@@ -21,6 +21,7 @@ const RepairForm = () => {
     totalAmount: "",
     balance: "",
     notes: "",
+    signature: "",
   });
   const signatureCanvasRef = useRef({});
   const handleChange = (e) => {
@@ -29,7 +30,10 @@ const RepairForm = () => {
   };
   const handleSaveSignature = () => {
     const signatureData = signatureCanvasRef.current.toDataURL();
-    // Do something with the signature data, like save it to the form data
+    setFormData((prevState) => ({
+      ...prevState,
+      signature: signatureData,
+    }));
     console.log("Signature Data:", signatureData);
   };
 
@@ -54,6 +58,17 @@ const RepairForm = () => {
 
       if (response.ok) {
         notify();
+        setFormData({
+          date: "",
+          Devicepur: "",
+          Deviceamt: "",
+          name: "",
+          phoneNo: "",
+          email: "",
+          Address: "",
+          Dl: "",
+          signature: "", // Reset signature field
+        });
         // Make a POST request to download the PDF
         const downloadResponse = await fetch(
           "https://mobilecarebackend.onrender.com/downloadrepair",
