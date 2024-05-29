@@ -17,6 +17,7 @@ const RepairForm = () => {
     partOrder: "",
     technicianName: "",
     status: "",
+    beingrepair: "",
     deposit: "",
     totalAmount: "",
     balance: "",
@@ -60,13 +61,17 @@ const RepairForm = () => {
         notify();
         setFormData({
           date: "",
-          Devicepur: "",
-          Deviceamt: "",
-          name: "",
-          phoneNo: "",
-          email: "",
-          Address: "",
-          Dl: "",
+          deviceModel: "",
+          customerName: "",
+          phoneNumber: "",
+          partOrder: "",
+          technicianName: "",
+          status: "",
+          beingrepair: "",
+          deposit: "",
+          totalAmount: "",
+          balance: "",
+          notes: "",
           signature: "", // Reset signature field
         });
         // Make a POST request to download the PDF
