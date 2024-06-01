@@ -1,47 +1,41 @@
 import React from "react";
 import "./Insurance.css";
+import AkkoImage from "../Images/Akko.jpg"; // Ensure this matches the file name on disk
 
 const Insurance = () => {
   return (
     <div>
       <br />
-      <div className="ins-box">
-        <h2> Insurance</h2>
-        <hr color="black" />
-        <br />
-        <h4>Mobile Care Insurance</h4>
-        <br />
-        <p>
-          We offer financig at NO CREDIT check
+      <div className="ins-container">
+        <div className="ins-box">
+          <h2>Insurance</h2>
+          <hr color="black" />
           <br />
+          <h4>Mobile Care Insurance</h4>
           <br />
-          Our financing partners at ACIMA make it fast and easy!
-          <br />
-          <br />
-          Get up to $4,000 in credit to spend in store!
-          <br />
-          <br />
-          Only $80+tax up front to ACIMA!
-          <br />
-          <br />
-          Pay off in 90 days with no interest!
-        </p>
+          <p>
+            We offer Insurance at NO CREDIT check
+            <br />
+            <br />
+            Our Insurance partners at AKKO make it fast and easy!
+            <br />
+          </p>
 
-        <br />
-        <p>
-          {" "}
-          <b>Follow the link below to apply today!</b>
-        </p>
-        <br />
-        <a href="https://portal.acima.com/merchant_login?lang=en.leases">
-          https://portal.acima.com/merchant_login?lang=en.leases
-        </a>
-        <br />
-        <br />
-        <p>
-          {" "}
-          <b> or Text 47811 to 22462 to apple now! </b>
-        </p>
+          <br />
+          <p>
+            <b>Follow the link below to apply today!</b>
+          </p>
+          <br />
+          <a href="https://partner.akko.app/">https://partner.akko.app/</a>
+          <br />
+          <br />
+          <p>
+            <b>or Text 47811 to 22462 to apply now!</b>
+          </p>
+          <div className="ins-image">
+            <img src={AkkoImage} alt="AKKO Insurance" />
+          </div>
+        </div>
       </div>
     </div>
   );

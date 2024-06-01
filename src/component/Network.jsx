@@ -12,10 +12,10 @@ const Network = () => {
         <h4>Mobile Care Networks</h4>
         <br />
         <p>
-          We offer financing at NO CREDIT check
+          We offer Networking at NO CREDIT check
           <br />
           <br />
-          Our financing partners at ACIMA make it fast and easy!
+          Our Networking partners at ACIMA make it fast and easy!
           <br />
           <br />
           Get up to $4,000 in credit to spend in store!
