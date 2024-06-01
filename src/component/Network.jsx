@@ -13,10 +13,10 @@ const Network = () => {
         <h4>Mobile Care Networks</h4>
         <br />
         <p>
-          We offer Networking at NO CREDIT check
+          We offer Networking
           <br />
           <br />
-          Our Networking partners at ACIMA make it fast and easy!
+          Our Networking partners at T- Mobile make it fast and easy!
           <br />
         </p>
 
@@ -31,8 +31,8 @@ const Network = () => {
           <b>T Mobile website Link</b>
         </p>
         <br />
-        <a href="https://epaywebposcert.epayworldwide.com/#!/products">
-          https://epaywebposcert.epayworldwide.com/#!/products
+        <a href="https://beta.rap.t-mobile.com/rap/home">
+          https://beta.rap.t-mobile.com/rap/home
         </a>
         <br />
         <div className="net-image">
