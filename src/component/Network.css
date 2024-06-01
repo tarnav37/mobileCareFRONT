@@ -6,6 +6,12 @@
     background-color: rgb(145, 221, 191);
 }
 
+.net-image img {
+    margin-top: 20px;
+    max-width: 300px;
+    height: auto;
+}
+
 @media screen and (max-width: 768px) {
     .net-box {
         width: 90%;

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Network.css";
+import TMobile from "../Images/TMobile.jpg";
 
 const Network = () => {
   return (
@@ -17,14 +18,6 @@ const Network = () => {
           <br />
           Our Networking partners at ACIMA make it fast and easy!
           <br />
-          <br />
-          Get up to $4,000 in credit to spend in store!
-          <br />
-          <br />
-          Only $80+tax up front to ACIMA!
-          <br />
-          <br />
-          Pay off in 90 days with no interest!
         </p>
 
         <br />
@@ -33,10 +26,18 @@ const Network = () => {
           <b>Follow the link below to apply today!</b>
         </p>
         <br />
-        <a href="https://portal.acima.com/merchant_login?lang=en.leases">
-          https://portal.acima.com/merchant_login?lang=en.leases
+        <p>
+          {" "}
+          <b>T Mobile website Link</b>
+        </p>
+        <br />
+        <a href="https://epaywebposcert.epayworldwide.com/#!/products">
+          https://epaywebposcert.epayworldwide.com/#!/products
         </a>
         <br />
+        <div className="net-image">
+          <img src={TMobile} alt="TMobile Network" />
+        </div>
         <br />
         <p>
           {" "}
