@@ -6,16 +6,42 @@
     background-color: rgb(145, 221, 191);
 }
 
-.net-image img {
+.net-images {
+    display: flex;
+    justify-content: space-between;
     margin-top: 20px;
+}
+
+.net-image {
+    flex: 1;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.net-image img {
     max-width: 300px;
     height: auto;
+    width: 100%; /* Ensure images fill their containers */
 }
 
 @media screen and (max-width: 768px) {
     .net-box {
         width: 90%;
         font-size: 18px;
+    }
+    
+    .net-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .net-image {
+        margin-bottom: 20px;
+    }
+
+    .net-image img {
+        width: auto; /* Adjust the width for smaller screens */
     }
 }
 
