@@ -38,11 +38,6 @@ const Network = () => {
         <div className="net-image">
           <img src={TMobile} alt="TMobile Network" />
         </div>
-        <br />
-        <p>
-          {" "}
-          <b> or Text 47811 to 22462 to apple now! </b>
-        </p>
       </div>
     </div>
   );

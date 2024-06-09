@@ -14,9 +14,6 @@ const Insurance = () => {
           <h4>Mobile Care Insurance</h4>
           <br />
           <p>
-            We offer Insurance at NO CREDIT check
-            <br />
-            <br />
             Our Insurance partners at AKKO make it fast and easy!
             <br />
           </p>
@@ -28,10 +25,6 @@ const Insurance = () => {
           <br />
           <a href="https://partner.akko.app/">https://partner.akko.app/</a>
           <br />
-          <br />
-          <p>
-            <b>or Text 47811 to 22462 to apply now!</b>
-          </p>
           <div className="ins-image">
             <img src={AkkoImage} alt="AKKO Insurance" />
           </div>
