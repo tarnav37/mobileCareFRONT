@@ -137,6 +137,7 @@ const RepairForm = () => {
           name="deviceModel"
           value={formData.deviceModel}
           onChange={handleChange}
+          required
         />
       </div>
       <div className="form-group">
@@ -147,6 +148,7 @@ const RepairForm = () => {
           name="customerName"
           value={formData.customerName}
           onChange={handleChange}
+          required
         />
       </div>
       <div className="form-group">
@@ -157,6 +159,7 @@ const RepairForm = () => {
           name="phoneNumber"
           value={formData.phoneNumber}
           onChange={handleChange}
+          required
         />
       </div>
       <div className="form-group">
@@ -166,6 +169,7 @@ const RepairForm = () => {
           name="partOrder"
           value={formData.partOrder}
           onChange={handleChange}
+          required
         >
           <option value="">Part Order</option>
           <option value="Yes">Yes</option>
@@ -182,6 +186,7 @@ const RepairForm = () => {
           name="technicianName"
           value={formData.technicianName}
           onChange={handleChange}
+          required
         />
       </div>
       <div className="form-group">
@@ -194,6 +199,7 @@ const RepairForm = () => {
           name="beingrepair"
           value={formData.beingrepair}
           onChange={handleChange}
+          required
         />
       </div>
       <div className="form-group">
@@ -203,6 +209,7 @@ const RepairForm = () => {
           name="status"
           value={formData.status}
           onChange={handleChange}
+          required
         >
           <option value="">Choose Status</option>
           <option value="Complete">Complete</option>
@@ -217,6 +224,7 @@ const RepairForm = () => {
           name="deposit"
           value={formData.deposit}
           onChange={handleChange}
+          required
         />
       </div>
       <div className="form-group">
@@ -227,6 +235,7 @@ const RepairForm = () => {
           name="totalAmount"
           value={formData.totalAmount}
           onChange={handleChange}
+          required
         />
       </div>
       <div className="form-group">
@@ -237,6 +246,7 @@ const RepairForm = () => {
           name="balance"
           value={formData.balance}
           onChange={handleChange}
+          required
         />
       </div>
       <div className="form-group">
@@ -247,6 +257,7 @@ const RepairForm = () => {
           name="notes"
           value={formData.notes}
           onChange={handleChange}
+          required
         />
       </div>
       <div className="signature-container">
