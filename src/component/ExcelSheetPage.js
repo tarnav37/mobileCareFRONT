@@ -67,17 +67,19 @@ const ExcelSheetPage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("https://mobilecarebackend.onrender.com/repairdata");
-      if (response.ok) {
-        const data = await response.json();
-        setRows(data.repairData || []);
-      } else {
-        throw new Error("Failed to fetch repair data");
-      }
+        const response = await fetch("https://mobilecarebackend.onrender.com/repairdata");
+        if (response.ok) {
+            const data = await response.json();
+            // Sort rows by date in descending order (just in case)
+            const sortedData = data.repairData.sort((a, b) => new Date(b.date) - new Date(a.date));
+            setRows(sortedData || []);
+        } else {
+            throw new Error("Failed to fetch repair data");
+        }
     } catch (error) {
-      console.error("Error:", error);
+        console.error("Error:", error);
     }
-  };
+};
 
   useEffect(() => {
     fetchData();
