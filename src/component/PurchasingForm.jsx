@@ -189,6 +189,26 @@ const PurchasingForm = () => {
           required
         />
       </div>
+      <div className="care-form">
+        <label htmlFor="location">Location:</label>
+        <select
+          id="location"
+          name="location"
+          value={formData.location}
+          onChange={handleChange}
+          required
+        >
+          <option value="" disabled>
+            Select a location
+          </option>
+          <option value="Augusta">Augusta</option>
+          <option value="Perimeter">Perimeter</option>
+          <option value="Cumberland">Cumberland</option>
+          <option value="Southlake">Southlake</option>
+          <option value="Lynnhaven">Lynnhaven</option>
+          <option value="Carolina Place">Carolina Place</option>
+        </select>
+      </div>
       <div className="form-group">
         <label htmlFor="Dl">Driving License No.:</label>
         <input
