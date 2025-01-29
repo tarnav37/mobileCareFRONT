@@ -22,6 +22,8 @@ const ExcelSheetPage = () => {
   const [showReminder, setShowReminder] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [editingRowId, setEditingRowId] = useState(null);
+  const [editedNotes, setEditedNotes] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -88,6 +90,53 @@ const ExcelSheetPage = () => {
     const interval = setInterval(fetchData, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleEditNotes = (id, notes) => {
+    setEditingRowId(id);
+    setEditedNotes(notes);
+  };
+
+  const handleSaveNotes = async (id) => {
+    try {
+      const response = await fetch(`https://mobilecarebackend.onrender.com/repairform/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ notes: editedNotes }),
+      });
+      if (response.ok) {
+        console.log("Notes updated successfully");
+        fetchData();
+        setEditingRowId(null);
+      } else {
+        throw new Error("Failed to update notes");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  const handleDeleteNotes = async (id) => {
+    try {
+      const response = await fetch(`https://mobilecarebackend.onrender.com/repairform/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ notes: "" }),
+      });
+      if (response.ok) {
+        console.log("Notes deleted successfully");
+        fetchData();
+      } else {
+        throw new Error("Failed to delete notes");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
 
   const handleReminderPopup = (row) => {
     setSelectedRow(row);
@@ -272,7 +321,7 @@ const ExcelSheetPage = () => {
             <th>Total Amount</th>
             <th>Balance</th>
             <th>Notes</th>
-            <th>Edit</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -304,6 +353,25 @@ const ExcelSheetPage = () => {
                   <button onClick={() => handleEditClick(row._id, { ...row, status: "Updated" })}>
                     Change Status
                   </button>
+                  <td>
+                {editingRowId === row._id ? (
+                  <input
+                    type="text"
+                    value={editedNotes}
+                    onChange={(e) => setEditedNotes(e.target.value)}
+                  />
+                ) : (
+                  row.notes
+                )}
+              </td>
+              <td>
+                {editingRowId === row._id ? (
+                  <button onClick={() => handleSaveNotes(row._id)}>Save</button>
+                ) : (
+                  <button onClick={() => handleEditNotes(row._id, row.notes)}>Edit</button>
+                )}
+                <button onClick={() => handleDeleteNotes(row._id)}>Delete</button>
+              </td>
                 </td>
               </tr>
             ))}
