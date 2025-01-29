@@ -15,6 +15,7 @@ const PurchasingForm = () => {
     phoneNo: "",
     email: "",
     Address: "",
+    location: "",
     Dl: "",
     signature: "", // Add signature field
   });
@@ -63,6 +64,7 @@ const PurchasingForm = () => {
           phoneNo: "",
           email: "",
           Address: "",
+          location: "",
           Dl: "",
           signature: "", // Reset signature field
         });
@@ -189,7 +191,7 @@ const PurchasingForm = () => {
           required
         />
       </div>
-      <div className="care-form">
+      <div className="form-group">
         <label htmlFor="location">Location:</label>
         <select
           id="location"

@@ -11,6 +11,7 @@ const RepairForm = () => {
 
   const [formData, setFormData] = useState({
     date: "",
+    location: "",
     deviceModel: "",
     customerName: "",
     phoneNumber: "",
@@ -61,6 +62,7 @@ const RepairForm = () => {
         notify();
         setFormData({
           date: "",
+          location: "",
           deviceModel: "",
           customerName: "",
           phoneNumber: "",
@@ -129,7 +131,7 @@ const RepairForm = () => {
           required
         />
       </div>
-      <div className="care-form">
+      <div className="form-group">
         <label htmlFor="location">Location:</label>
         <select
           id="location"
@@ -138,9 +140,7 @@ const RepairForm = () => {
           onChange={handleChange}
           required
         >
-          <option value="" disabled>
-            Select a location
-          </option>
+          <option value="">Select a location</option>
           <option value="Augusta">Augusta</option>
           <option value="Perimeter">Perimeter</option>
           <option value="Cumberland">Cumberland</option>

@@ -6,6 +6,7 @@ import logo from "../Images/Logo.png";
 const ExcelSheetPage = () => {
   const [formData, setFormData] = useState({
     date: "",
+    location: "",
     deviceModel: "",
     customerName: "",
     phoneNumber: "",
@@ -51,6 +52,7 @@ const ExcelSheetPage = () => {
     }
     setFormData({
       date: "",
+      location: "",
       deviceModel: "",
       customerName: "",
       phoneNumber: "",
@@ -148,6 +150,16 @@ const ExcelSheetPage = () => {
             id="date"
             name="date"
             value={formData.date}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="group">
+          <label htmlFor="location">Location:</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            value={formData.location}
             onChange={handleChange}
           />
         </div>
