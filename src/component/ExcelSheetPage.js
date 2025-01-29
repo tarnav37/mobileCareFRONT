@@ -260,6 +260,7 @@ const ExcelSheetPage = () => {
         <thead>
           <tr>
             <th>Date</th>
+            <th>Location</th>
             <th>Device Model</th>
             <th>Customer Name</th>
             <th>Phone Number</th>
@@ -279,6 +280,7 @@ const ExcelSheetPage = () => {
                 {filteredRows.map((row, index) => (
             <tr key={index}>
                 <td>{row.date}</td>
+                <td>{row.location}</td>
                 <td>{row.deviceModel}</td>
                 <td>{row.customerName}</td>
                 <td>{row.phoneNumber}</td>
